@@ -1,0 +1,15 @@
+{%extends "basefirst.html"  %}
+
+{%block content%}
+<h1>Hello, {{ user.username }}!</h1>
+        <p>
+            {%for messages in messages%}
+            <div><p>
+              <b>  {{messages.sender}} </b>says :: {{messages.message}}
+            </p></div>
+
+            {% endfor %}
+
+
+        </p>
+{% endblock %}
