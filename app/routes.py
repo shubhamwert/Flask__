@@ -1,5 +1,6 @@
 from app import app
-from flask import render_template, flash, redirect,url_for
+# from flask import render_template, flash, redirect,url_for
+from flask import *
 from app.app_login_form import LoginForm
 from flask_login import current_user, login_user
 from app.models import User
@@ -30,7 +31,7 @@ def p1():
         }]
     
     return render_template('firstPage.html',title="first page", user=current_user,messages = messages)
-@app.route('/login',methods=['GET', 'POST'])
+@app.route('/login',methods=['POST']) # Login info should not be sent with GET request
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('p1'))
